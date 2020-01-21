@@ -1,0 +1,13 @@
+.Title-text {
+  font-size: 40px;
+  margin: 0 auto;
+}
+
+.image-results img {
+  max-width: 200px;
+  max-height: 300px;
+}
+
+.result-notes {
+  color: red;
+}
