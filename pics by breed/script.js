@@ -13,6 +13,7 @@ function inputListener() {
 function pullDogImages(pickBreed) {
   console.log(`This ${pickBreed} was passed to the pullDogImages`);
   fetch(`https://dog.ceo/api/breed/${pickBreed}/images/random`)
+        .then(response => response.json())
         .then(response => {
         console.log(response);
         return response.json();
