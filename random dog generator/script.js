@@ -1,32 +1,45 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Random dog picture generator</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
 
-    <header>
-    <span class="banner-text">Find your picture!</span>
-    </header>
+function getDogImages(query, displayCallback) {
+   fetch(`https://dog.ceo/api/breeds/image/random/${query}`)
+  .then(response => response.json())
+  .then(responseJson => {
+    console.log(responseJson)
+    return responseJson
+  }) 
+  .then(responseJson => displayCallback(responseJson))
+  .catch(error => alert('Something went wrong. Try again later.'));
+}
 
-    <main>
-      <div>How many dogs would you like to see?</div>
-      <form id="dog-form">
-        <input id="dog-input" type="text" name="dog-number">
-        <input type="submit" name="submit">
-      </form>
-      <div>*Notes: Pick a number between 1 and 50. If you dont pick any number three random dogs will appear.</div>
-      <section>
-        <div class="dog-image"></div>
-      </section>
-    </main>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </body>
-</html>
+
+function displayResults(responseJson) {
+  return `
+  <div>
+    <br/>
+    <img src="${responseJson}" class="results-img">
+  </div>
+  ` ;
+}
+
+function displayDogSearchData(data) {
+  const results = data.message.map((item, index) => displayResults(item));
+  $('.js-results').html(results);
+  
+  $('.results').removeClass('hidden');
+}
+
+
+function listenToInput() {
+  $('.js-search-form').submit(event => {
+    event.preventDefault();
+    const queryTarget = $(event.currentTarget).find('.js-query');
+    const query = queryTarget.val();
+     queryTarget.val("3")
+    getDogImages(query, displayDogSearchData);
+  });
+}
+
+
+$(function() {
+  console.log('App loaded! Waiting for submit!');
+  listenToInput();
+}); 
