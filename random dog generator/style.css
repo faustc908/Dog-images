@@ -1,9 +1,9 @@
 .banner-text {
-  font-size: 40px;
+  font-size: 30px;
   margin: 0 auto;
 }
 
 .dog-image-results img {
-  max-width: 200px;
-  max-height: 300px;
+  max-width: 180px;
+  max-height: 280px;
 }
