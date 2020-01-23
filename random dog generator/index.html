@@ -3,30 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Random dog picture generator</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Multiple dog images </title>
+    <link href="style.css" rel="stylesheet" type="text/css" /><script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   </head>
   <body>
 
-    <header>
-    <span class="banner-text">Find your picture!</span>
-    </header>
+    <div class="container">
+      <h1>How many random dogs would you like to see?</h1>
+      <p>Pick a number between 1-50 or just click to see random dogs</p>
 
-    <main>
-      <div>How many dogs would you like to see?</div>
-      <form id="dog-form">
-        <input id="dog-input" type="text" name="dog-number">
-        <input type="submit" name="submit">
+      <form action="#" class="js-search-form">
+        <label for="query"></label>
+        <input required type="text" class="js-query" value="3"">
+        <button class="js-submit" type="submit">Search</button>
       </form>
-      <div>*Notes: Pick a number between 1 and 50. If you dont pick any number three random dogs will appear.</div>
-      <section>
-        <div class="dog-image"></div>
-      </section>
-    </main>
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+
+      <section class="results hidden js-results"></section>
+    </div>
+ 
     <script src="script.js"></script>
   </body>
 </html>
