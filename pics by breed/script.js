@@ -1,5 +1,3 @@
-'use strict';
-
 function fetchImages(query, showCallBack) {
    fetch(`https://dog.ceo/api/breed/${query}/images/random`)
   .then(response => response.json())
@@ -16,7 +14,7 @@ function showResults(responseJson) {
   if (responseJson.status == 'error') {
     $('.results-img').replaceWith(
     `<br/>
-    <img class="results-img" src="http://m.memegen.com/e6i52e.jpg"/>` 
+    <img class="results-img" alt = 'Dog Breed not found, try again'>`
    )
   }
   else if (responseJson.status == 'success') {
@@ -41,4 +39,6 @@ $(function() {
   console.log('App working. Listening for input');
   eventListener();
 }); 
+
+
 
