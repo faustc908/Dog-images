@@ -3,36 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Find dog pictures by breed</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Dog breed pictures </title>
+    <link href="style.css" rel="stylesheet" type="text/css" /><script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   </head>
-  
   <body>
-
-    <header>
-    <span class="Title-text">Name a dog breed find a picture.</span>
-    </header>
-
-    <main>
-
-      <div>What's your favorite dog breed?</div>
-      <form id="input-select">
-        <input id="dog-input" type="text" name="dog-number">
-        <input type="submit" name="submit">
+    <div class="container">
+      <h1>Pick a dog breed, see a picture.</h1>
+      <form action="#" class="js-search-form">
+        <label for="query"></label>
+        <input required type="text" class="js-query" placeholder="enter the breed here!"">
+        <button class="js-submit" type="submit">Search</button>
       </form>
-      <div>Either pick a breed, or just hit enter to see a random one.</div>
-      <section>
-        <div class="result-notes"></div>
-        <div class="image-results"></div>
+
+      <section class="results hidden js-results">
+      <img class="results-img" alt="placeholder">
       </section>
 
-    </main>
-
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+    </div>
+ 
     <script src="script.js"></script>
-
   </body>
 </html>
